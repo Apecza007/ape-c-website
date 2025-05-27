@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APEC Service - รับลงโปรแกรมพื้นฐานและงาน IT ทั่วไป</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #ff6600;
+            --text: #ffffff;
+            --text-secondary: #cccccc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--secondary);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+        
+        .logo span {
+            color: var(--text);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517430816045-df4b7de11e1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--text);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e65c00;
+        }
+        
+        .services {
+            padding: 80px 0;
+            background-color: var(--secondary);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--primary);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .about {
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact {
+            padding: 80px 0;
+            background-color: var(--secondary);
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--primary);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: var(--text);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: #111;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: var(--text-secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/50x50" alt="APEC Service Logo">
+                    <h1>APEC <span>Service</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">หน้าแรก</a></li>
+                        <li><a href="#services">บริการ</a></li>
+                        <li><a href="#about">เกี่ยวกับเรา</a></li>
+                        <li><a href="#contact">ติดต่อ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>บริการด้าน IT ที่ครบวงจร</h2>
+            <p>เรามอบบริการด้านไอทีครบวงจร ตั้งแต่การติดตั้งโปรแกรมพื้นฐาน การแก้ไขปัญหาคอมพิวเตอร์ ไปจนถึงการพัฒนาระบบตามความต้องการของคุณ</p>
+            <a href="#contact" class="btn">ติดต่อเรา</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>บริการของเรา</h2>
+                <p>เรามอบบริการด้านไอทีที่หลากหลายเพื่อตอบสนองความต้องการของคุณ</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>ติดตั้งโปรแกรมพื้นฐาน</h3>
+                    <p>บริการติดตั้งโปรแกรมพื้นฐานที่จำเป็นทั้งหมดสำหรับคอมพิวเตอร์ของคุณ ทั้งระบบปฏิบัติการและโปรแกรมอรรถประโยชน์ต่างๆ</p>
+                    <a href="#contact" class="btn">สอบถามเพิ่มเติม</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>ซ่อมบำรุงคอมพิวเตอร์</h3>
+                    <p>บริการตรวจสอบและซ่อมบำรุงคอมพิวเตอร์ทั้งฮาร์ดแวร์และซอฟต์แวร์ เพื่อให้ระบบทำงานได้อย่างมีประสิทธิภาพ</p>
+                    <a href="#contact" class="btn">สอบถามเพิ่มเติม</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>ระบบความปลอดภัย</h3>
+                    <p>บริการติดตั้งและตั้งค่าระบบความปลอดภัยสำหรับคอมพิวเตอร์และเครือข่าย ป้องกันไวรัสและมัลแวร์ต่างๆ</p>
+                    <a href="#contact" class="btn">สอบถามเพิ่มเติม</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>ตั้งค่าเครือข่าย</h3>
+                    <p>บริการติดตั้งและตั้งค่าเครือข่ายทั้งภายในบ้านและสำนักงาน เพื่อการเชื่อมต่อที่เสถียรและปลอดภัย</p>
+                    <a href="#contact" class="btn">สอบถามเพิ่มเติม</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>สำรองข้อมูล</h3>
+                    <p>บริการสำรองข้อมูลสำคัญและกู้คืนข้อมูลที่สูญหาย เพื่อความปลอดภัยของข้อมูลของคุณ</p>
+                    <a href="#contact" class="btn">สอบถามเพิ่มเติม</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>บริการให้คำปรึกษา</h3>
+                    <p>ให้คำปรึกษาด้านไอทีทุกประเภท เพื่อช่วยให้คุณตัดสินใจเลือกใช้เทคโนโลยีที่เหมาะสมกับความต้องการ</p>
+                    <a href="#contact" class="btn">สอบถามเพิ่มเติม</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>เกี่ยวกับ APEC Service</h2>
+                    <p>APEC Service ก่อตั้งขึ้นจากความรักในเทคโนโลยีและความต้องการที่จะช่วยเหลือผู้ที่ประสบปัญหาด้านไอที </p>
+                    <p>เราเชื่อว่าการบริการที่ดีต้องเริ่มจากความเข้าใจปัญหาและความต้องการของลูกค้าเป็นอันดับแรก นั่นคือเหตุผลที่เรามุ่งเน้นการฟังและวิเคราะห์ปัญหาอย่างละเอียดก่อนให้บริการ</p>
+                    <p>ด้วยมาตรฐานการทำงานที่สูงและความใส่ใจในทุกรายละเอียด เรามั่นใจว่าจะสามารถตอบสนองความต้องการด้านไอทีของคุณได้อย่างดีที่สุด</p>
+                    <a href="#contact" class="btn">ติดต่อเรา</a>
+                </div>
+                <div class="about-image">
+                    <img src="WIN_20221125_18_56_23_Pro.jpg" alt="เกี่ยวกับ APEC Service">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>ติดต่อเรา</h2>
+                <p>สนใจใช้บริการหรือมีคำถาม? ติดต่อเราได้ทันที</p>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">ชื่อ-นามสกุล</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">อีเมล</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">เบอร์โทรศัพท์</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">บริการที่สนใจ</label>
+                        <select id="service" name="service">
+                            <option value="">-- กรุณาเลือกบริการ --</option>
+                            <option value="install">ติดตั้งโปรแกรมพื้นฐาน</option>
+                            <option value="repair">ซ่อมบำรุงคอมพิวเตอร์</option>
+                            <option value="security">ระบบความปลอดภัย</option>
+                            <option value="network">ตั้งค่าเครือข่าย</option>
+                            <option value="backup">สำรองข้อมูล</option>
+                            <option value="consult">บริการให้คำปรึกษา</option>
+                            <option value="other">อื่นๆ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">รายละเอียด</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">ส่งข้อความ</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>เกี่ยวกับเรา</h3>
+                    <p>APEC Service ให้บริการด้านไอทีครบวงจร</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-line"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>ลิงก์ด่วน</h3>
+                    <a href="#home">หน้าแรก</a>
+                    <a href="#services">บริการ</a>
+                    <a href="#about">เกี่ยวกับเรา</a>
+                    <a href="#contact">ติดต่อ</a>
+                </div>
+                <div class="footer-section">
+                    <!-- ในส่วน Contact Form -->
+<div class="footer-section">
+    <h3>ติดต่อเรา</h3>
+    <p><i class="fas fa-map-marker-alt"></i> อ.กระนวน จ.ขอนแก่น</p>
+    <p><i class="fas fa-phone"></i> <a href="tel:+66981463363">+66 98 146 3363</a></p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:lorh456@gmail.com">lorh456@gmail.com</a></p>
+</div>
+
+
+    <div class="social-icons">
+        <a href="https://www.facebook.com/mkns46"><i class="fab fa-facebook"></i></a>
+        <a href="https://line.me/ti/p/JuL2DqmKRf"><i class="fab fa-line"></i></a>
+    </div>
+</div>
+    </footer>
+</body>
+</html>
